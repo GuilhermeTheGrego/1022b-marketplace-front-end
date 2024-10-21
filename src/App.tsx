@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
+type ProdutoType = {
+  id:number,
+  nome:string,
+  descricao:string,
+  preco:string,
+  imagem:string
+}
+type UsuarioType = {
+ id:number,
+ nome:string,
+ email:string,
+ create_at:string,
+ update_at:string
+}
+
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [produtos, setProdutos] = useState<ProdutoType[]>([])
+  const[usuarios,setUsuarios]=useState<UsuarioType[]>([])
+  //useEffect(Oque fazer, quando fazer)
+  useEffect(()=>{
+    console.log("Gui the Grego")
+    fetch("https://one022b-marketplace-7b6j.onrender.com/produtos")
+    .then(resposta=>resposta.json())
+    .then(dados=>setProdutos(dados))
+  
+  },[])
+  useEffect(()=>{
+    console.log("Gui the Grego")
+    fetch("https://one022b-marketplace-7b6j.onrender.com/produtos")
+    .then(resposta=>resposta.json())
+    .then(dados=>setUsuarios(dados))
+  },[])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='container-produtos'>
+      {produtos.map(prod=>{
+        return(
+          <div key={prod.id}  className='produto-item'>
+            <h1>{prod.nome}</h1>
+            <p>{prod.imagem}</p>
+            <img src={prod.imagem} alt="Imagem do celular"/>
+            <p>{prod.descricao}</p>
+          </div>
+        )
+      })}
+      <div className='container-produtos'>
+      {usuarios.map(usua=>{
+        return(
+          <div key={usua.id}  className='produto-item'>
+            <h1>{usua.nome}</h1>
+            <p>{usua.email}</p>
+            <h1>{usua.create_at}</h1>
+            <p>{usua.update_at}</p>
+          </div>
+        )
+      })}
       </div>
-      <h1>Guilherme Figueiredo Terenciani</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      
+  </>
+ 
 
-export default App
+export default Aapp
