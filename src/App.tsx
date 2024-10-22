@@ -43,8 +43,10 @@ function App() {
         {produtos.map(prod => (
           <div key={prod.id} className='produto-item'>
             <h1>{prod.nome}</h1>
-            <img src={prod.imagem} alt={prod.nome} />
+            <img src='{prod.imagem}' />
             <p>{prod.descricao}</p>
+            <p>{prod.preco}</p>
+
           </div>
         ))}
       </div>
@@ -53,8 +55,8 @@ function App() {
           <div key={usua.id} className='usuario-item'>
             <h1>{usua.nome}</h1>
             <p>{usua.email}</p>
-            <p>Criado em: {usua.create_at}</p>
-            <p>Atualizado em: {usua.update_at}</p>
+            <p>{usua.create_at}</p>
+            <p>{usua.update_at}</p>
           </div>
         ))}
       </div>
