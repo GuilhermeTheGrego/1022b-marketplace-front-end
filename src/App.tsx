@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     console.log("Carregando usuários...");
-    fetch("https://one022b-marketplace-7b6j.onrender.com/usuarios") // Use a URL correta aqui
+    fetch("https://one022b-marketplace-7b6j.onrender.com/usuarios")
       .then(resposta => resposta.json())
       .then(dados => setUsuarios(dados))
       .catch(error => console.error("Erro ao buscar usuários:", error));
@@ -43,7 +43,7 @@ function App() {
         {produtos.map(prod => (
           <div key={prod.id} className='produto-item'>
             <h1>{prod.nome}</h1>
-            <img src='{prod.imagem}' />
+            <img src='{prod.imagem}'/>
             <p>{prod.descricao}</p>
             <p>{prod.preco}</p>
 
