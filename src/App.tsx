@@ -43,7 +43,7 @@ function App() {
         {produtos.map(prod => (
           <div key={prod.id} className='produto-item'>
             <h1>{prod.nome}</h1>
-            <img src='{prod.imagem}'/>
+            <img src={prod.imagem}/>
             <p>{prod.descricao}</p>
             <p>{prod.preco}</p>
 
