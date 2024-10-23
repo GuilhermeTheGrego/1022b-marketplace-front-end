@@ -9,6 +9,7 @@ type ProdutoType = {
   imagem: string;
 };
 
+//Criamos um tipo usuario para classificar o tipo da const e especificar a tipagem dos dados que foram inseridos no banco e serão mostrados na tela
 type UsuarioType = {
   id: number;
   nome: string;
@@ -28,7 +29,7 @@ function App() {
       .then(dados => setProdutos(dados))
       .catch(error => console.error("Erro ao buscar produtos:", error));
   }, []);
-
+//Criamos um UseEffect para colocar a url do usuario e retornar seus dados
   useEffect(() => {
     console.log("Carregando usuários...");
     fetch("https://one022b-marketplace-7b6j.onrender.com/usuarios")
@@ -50,6 +51,7 @@ function App() {
           </div>
         ))}
       </div>
+      
       <div className='container-usuarios'>
         {usuarios.map(usua => (
           <div key={usua.id} className='usuario-item'>
@@ -61,6 +63,7 @@ function App() {
         ))}
       </div>
     </>
+    /*Criamos uma div para conter os dados da tabela usuarios do banco de dados*/ 
   );
 }
 
