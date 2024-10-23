@@ -13,8 +13,8 @@ type UsuarioType = {
   id: number;
   nome: string;
   email: string;
-  create_at: string;
-  update_at: string;
+  created_at: string;
+  updated_at: string;
 };
 
 function App() {
@@ -55,8 +55,8 @@ function App() {
           <div key={usua.id} className='usuario-item'>
             <h1>{usua.nome}</h1>
             <p>{usua.email}</p>
-            <p>{usua.create_at}</p>
-            <p>{usua.update_at}</p>
+            <p>{usua.created_at}</p>
+            <p>{usua.updated_at}</p>
           </div>
         ))}
       </div>
