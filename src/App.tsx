@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     console.log("Carregando produtos...");
-    fetch("https://one022b-marketplace-7b6j.onrender.com/produtos")
+    fetch("http://localhost:8000/produtos")
       .then(resposta => resposta.json())
       .then(dados => setProdutos(dados))
       .catch(error => console.error("Erro ao buscar produtos:", error));
